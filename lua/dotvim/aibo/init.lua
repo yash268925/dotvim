@@ -32,5 +32,6 @@ return require('dotvim._lib.feature').define({
     -- 登録した関数は completion が有効なときだけ呼ばれるので、ここでは判定しない
     require('dotvim.completion').register_attacher(attach_sources)
     require('dotvim.aibo.claude')
+    require('dotvim.aibo.prompt_close')
   end,
 })
