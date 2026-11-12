@@ -18,7 +18,17 @@ return require('dotvim._lib.feature').define({
     },
   },
   setup = function(opts)
-    require('skkelua').config(opts.config)
+    local config = vim.deepcopy(opts.config)
+    if opts.skkserv then
+      -- true は skkelua の既定の接続先をそのまま使う指定
+      local server = opts.skkserv == true and {} or opts.skkserv
+      config.skkServerHost = server.host
+      config.skkServerPort = server.port
+      config.skkServerReqEnc = server.encoding
+      config.skkServerResEnc = server.encoding
+      config.sources = config.sources or { 'skk_dictionary', 'skk_server' }
+    end
+    require('skkelua').config(config)
 
     local function initialize()
       vim.defer_fn(function()

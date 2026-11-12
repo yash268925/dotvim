@@ -69,7 +69,7 @@ require('dotvim').setup({ ... })
 | `lsp` | nvim-lspconfig と `vim.lsp.enable`、LspAttach のキーマップ、nvim-treesitter (パーサのインストールとハイライト) | `servers` (有効にするサーバー名の一覧)、`treesitter = { indent = false }` (treesitter による indentexpr) |
 | `completion` | nvim-cmp-kit / nvim-ix | なし |
 | `quickfix` | vim-ripgrep (`:Grep`)、vim-toggle-quickfix、vim-qfedit | なし |
-| `skk` | skkelua.nvim | `config` (skkelua に渡す表。既定値に deep merge し、辞書のリストは差し替え) |
+| `skk` | skkelua.nvim | `config` (skkelua に渡す表。既定値に deep merge し、辞書のリストは差し替え)、`skkserv = { host?, port?, encoding? }` または `true` (skkserv をローカル辞書の後に併用する。省略したフィールドと `true` は skkelua の既定値 127.0.0.1:1178 / euc-jp。`config.sources` を指定した場合はそちらを優先) |
 | `git` | vim-gin (denops)、mini.diff | なし |
 | `aibo` | nvim-aibo、`:Claude`、プロンプトの補完ソース | なし |
 | `java` | nvim-jdtls、`:JdtlsAndroidLibs` | なし |
